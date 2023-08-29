@@ -12,8 +12,8 @@ set smarttab    " At <Tab> at beginning line inserts spaces set in shiftwidth
 set listchars=tab:>-,trail:-,nbsp:_
 set list
 
-syntax enable
-set background=dark
+syntax on
+"set background=dark
 
 " Enable folding
 set foldmethod=syntax
@@ -40,6 +40,11 @@ nnoremap <C-g> :Goyo<CR>
 set linebreak
 set termguicolors
 
+" Turning off macro recording: frequent missed input for me
+
+map q <Nop>
+
+" Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -62,6 +67,3 @@ let g:vim_markdown_autowrite = 1
 let g:vim_markdown_edit_url_in = 'tab'
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_conceal = 2
-
-
-
