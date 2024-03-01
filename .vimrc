@@ -12,8 +12,8 @@ set smarttab    " At <Tab> at beginning line inserts spaces set in shiftwidth
 set listchars=tab:>-,trail:-,nbsp:_
 set list
 
-syntax enable
-set background=dark
+syntax on
+"set background=dark
 
 " Enable folding
 set foldmethod=syntax
@@ -46,9 +46,15 @@ nnoremap <C-g> :Goyo<CR>
 set linebreak
 set termguicolors
 
+
 " Allow project specific prettierfile
 let g:neoformat_try_node_exe = 1
 
+" Turning off macro recording: frequent missed input for me
+
+map q <Nop>
+
+" Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -61,6 +67,19 @@ call plug#end()
 
 let g:airline_theme='nord'
 colorscheme nord
+
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
 let g:goyo_height='80%'
 let g:goyo_width='80%'
+
+
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_math = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_edit_url_in = 'tab'
+let g:vim_markdown_follow_anchor = 1
+let g:vim_markdown_conceal = 2
+
