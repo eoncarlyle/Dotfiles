@@ -30,6 +30,12 @@ vmap <C-j> ]egv
 
 :set nu
 
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" Always show NERDTree
+autocmd VimEnter * NERDTree
+
 " Markdown Settings
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd FileType markdown set cursorline
@@ -40,6 +46,9 @@ nnoremap <C-g> :Goyo<CR>
 set linebreak
 set termguicolors
 
+" Allow project specific prettierfile
+let g:neoformat_try_node_exe = 1
+
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -47,21 +56,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'vim-scripts/seashell'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 let g:airline_theme='nord'
-" colorscheme typewriter-night
 colorscheme nord
-
-let g:vim_markdown_conceal_code_blocks = 0
-let g:vim_markdown_math = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_strikethrough = 1
-let g:vim_markdown_autowrite = 1
-let g:vim_markdown_edit_url_in = 'tab'
-let g:vim_markdown_follow_anchor = 1
-let g:vim_markdown_conceal = 2
-
-
-
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
+let g:goyo_height='80%'
+let g:goyo_width='80%'
